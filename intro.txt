@@ -1,0 +1,16 @@
+
+#########################################################
+#                                                       #
+#                  Wer weiss mehr?                      #
+#                                                       #
+#                                                       #
+#                     Q U I Z                           #
+#                                                       #
+#                                                       #
+#                                                       #
+#                                                       #
+# (c) 2021 by Stephan Dick-Rustmeier, Giacomo Casale,   #
+#             Sebastian Reisach, Stefan Serf            #
+#                                                       #
+#                                                       #
+#########################################################
