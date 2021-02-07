@@ -25,7 +25,7 @@ def intro():
     with open("intro.txt", "r") as fobj:
         text = fobj.read()
     print(text)
-    sound_intro()    
+    sound_intro()
 
 
 def create_connection(db_file):
@@ -48,7 +48,7 @@ def clear_screen():
     :param: none
     :return: none
     """
-    system('cls' if name=='nt' else 'clear')
+    system('cls' if name == 'nt' else 'clear')
 
 
 def read_questions_from_db(level):
@@ -60,7 +60,7 @@ def read_questions_from_db(level):
     cur.execute(sql)
     rows = cur.fetchall()
     for row in rows:
-        #print(row)
+        # print(row)
         frage = row[1]
         antworten = row[2:6]
         loesung = row[6]
@@ -88,9 +88,9 @@ def answere_question(question):
 
 
 def print_question(question):
-    print("+" + "-" * (len(question.frage)+4) + "+" )
+    print("+" + "-" * (len(question.frage)+4) + "+")
     print("|  " + question.frage + "  |")
-    print("+" + "-" * (len(question.frage)+4) + "+" )
+    print("+" + "-" * (len(question.frage)+4) + "+")
     print("\n")
     for i in range(len(question.antworten)):
         print(str(i+1) + " " + question.antworten[i])
@@ -112,13 +112,14 @@ def gewinnermittlung(level, sicherheitsstufen, gewinnstufen):
         gewinn = gewinnstufen[sicherheitsstufen[1] - 1]
     return gewinn
 
+
 def check_sicherheitsstufe(level, sicherheitsstufen):
     ret = 0
-	if level == sicherheitsstufen[0]:
+    if level == sicherheitsstufen[0]:
         sound_sicherheitsstufe1()
-	    ret = 1
+        ret = 1
     if level == sicherheitsstufen[1]:
-	    sound_sicherheitsstufe2()
+        sound_sicherheitsstufe2()
         ret = 2
     return ret
 
@@ -127,12 +128,12 @@ def sound_intro():
 
 
 def sound_richtig():
-    #play_sound("richtige_anwort.mp3")
+    # play_sound("richtige_anwort.mp3")
     pass
 
 
 def sound_falsch():
-    #play_sound("falsche_anwort.mp3")
+    # play_sound("falsche_anwort.mp3")
     pass
 
 
@@ -144,7 +145,7 @@ def sound_sicherheitsstufe2():
 		
 
 def sound_gewonnen():
-    #play_sound("gewonnen.mp3")
+    # play_sound("gewonnen.mp3")
     pass
 
 
@@ -183,7 +184,7 @@ while level <= max_level and go:
         break
     if result:
         gewinn = gewinnermittlung(level, sicherheitsstufen, gewinnstufen)
-		sicherheitsstufe = check_sicherheitsstufe(level, sicherheitsstufen)
+        sicherheitsstufe = check_sicherheitsstufe(level, sicherheitsstufen)
         datensatz = delete_question(datensatz, position)
         level += 1
     go = result
